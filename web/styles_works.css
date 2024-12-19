@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Neue Regrade', sans-serif;
+    font-weight: 600;
+    background-color: #040404;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 90px; /* Отступы сверху и слева */
+    font-size: 2.5em; /* Размер шрифта */
+    position: fixed; /* Закрепление меню */
+}
+
+.menu-item {
+    margin: 10px 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.menu-item:hover {
+    color: #7C0000; /* Подсветка при наведении */
+}
+
+.menu a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: white; /* Цвет текста */
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #7C0000; /* Цвет при наведении */
+}
+
+.divider {
+    width: 82px;
+    height: 4px;
+    background-color: white;
+    margin: 4px 0; /* Расстояние между элементами */
+}
+
+/* Контейнер для всех изображений */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три колонки */
+    gap: 20px;
+    margin-left: 400px;
+    padding: 90px 60px 0;
+}
+
+/* Исходное состояние изображений */
+.work-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Плавное увеличение и затемнение */
+}
+
+/* Эффект при наведении на изображение */
+.work-item:hover .work-image {
+    transform: scale(1.1); /* Увеличиваем картинку */
+    z-index: 1; /* Поднимаем изображение над другими */
+}
+
+/* Затемнение всех остальных изображений */
+.grid-container:hover .work-image {
+    filter: brightness(30%); /* Уменьшаем яркость остальных */
+}
+
+/* Сбрасываем затемнение для активного изображения */
+.work-item:hover .work-image {
+    filter: brightness(100%);
+}
+
+.work-item {
+    margin-bottom: 30px; /* Расстояние между работами */
+}
+
+.work-title {
+    font-size: 2em; /* Размер шрифта для названия работы */
+    margin-top: 10px; /* Отступ сверху */
+    font-family: 'Neue Regrade', bold;
+    font-weight: 400;
+    color: white;
+}
+
+.menu-item:last-child {
+    margin-top: 120px; /* Добавляем отступ сверху только для последнего элемента (home) */
+}
+
+

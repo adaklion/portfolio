@@ -1,0 +1,198 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Neue Regrade', sans-serif;
+    font-weight: 600;
+    background-color: #040404;
+    color: white;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 90px;
+    font-size: 2.5em;
+    position: fixed;
+}
+
+.menu-item {
+    margin: 10px 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.home {
+    margin-top: 100px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.menu-item:hover, .home:hover {
+    color: #7C0000;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #7C0000;
+}
+
+.divider {
+    width: 82px;
+    height: 4px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+.about-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 90px 100px;
+    margin-left: 250px;
+    position: relative;
+    flex-grow: 1;
+}
+
+.text-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-right: 20px;
+}
+
+.name {
+    font-size: 4.7em;
+    text-align: right;
+    margin-bottom: 0;
+    letter-spacing: -9.5px;
+}
+
+.second-part {
+    margin-top: -20px;
+}
+
+.about-description {
+    margin-top: 20px;
+    font-size: 2.3em;
+    color: white;
+    text-align: right;
+}
+
+.additional-description {
+    margin-top: 350px;
+    font-size: 2.3em;
+    color: white;
+    text-align: right;
+}
+
+.image-block {
+    position: relative;
+    right: 0;
+    width: 50vw;
+    max-width: 600px;
+    margin-left: auto;
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-left: 20px;
+}
+
+/* Стиль для каждой буквы в имени */
+.letter {
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.4s ease;
+    transform: scale(1);
+    color: white;
+    will-change: transform;
+}
+
+.letter:hover {
+    color: #7C0000;
+    transition: color 0.1s ease-in, transform 0.3s ease-out;
+}
+
+.letter.mouse-move {
+    animation: wave 1.5s ease forwards;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.letter.finished-animation {
+    animation: wave 1.5s ease-out forwards;
+}
+
+.menu-item:last-child {
+    margin-top: 120px;
+}
+
+a, .menu a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover, .menu a:hover {
+    color: #7C0000;
+}
+
+.link-posters:hover {
+    color: #f6fa24;
+}
+
+.link-tibet:hover {
+    color: #09dfdf;
+}
+
+.link-vibe:hover {
+    color: #c50505;
+}
+
+a:active {
+    color: #007B7B;
+}
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    .menu {
+        padding: 20px;
+        font-size: 1.5em;
+    }
+
+    .about-content {
+        padding: 20px;
+        margin-left: 0;
+    }
+
+    .image-block {
+        width: 100%;
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обо мне</title>
+    <link rel="stylesheet" href="styles_about.css">
+    <style>
+        /* Анимация для плавного перехода между страницами */
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        body.fade-in {
+            opacity: 1;
+        }
+        body.fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #7C0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Меню -->
+        <div class="menu">
+            <a href="works.html" class="menu-item link-transition">works</a>
+            <div class="divider"></div>
+            <a href="about.html" class="menu-item link-transition">about me</a>
+            <div class="divider"></div>
+            <div class="menu-item">contacts</div>
+            <a href="index.html" class="menu-item link-transition">home</a>
+        </div>
+        <!-- Контент -->
+        <div class="about-content">
+            <div class="text-block">
+                <div class="name">
+                    <span class="letter">a</span>
+                    <span class="letter">r</span>
+                    <span class="letter">t</span>
+                    <span class="letter">e</span>
+                    <span class="letter">m</span>
+                    <span class="letter" style="display: inline-block; width: 0;"></span> <!-- Убираем пробел между m и k -->
+                </div>
+                <div class="name second-part">
+                    <span class="letter">k</span>
+                    <span class="letter">a</span>
+                    <span class="letter">z</span>
+                    <span class="letter">n</span>
+                    <span class="letter">a</span>
+                    <span class="letter">c</span>
+                    <span class="letter">h</span>
+                    <span class="letter">e</span>
+                    <span class="letter">e</span>
+                    <span class="letter">v</span>
+                </div>            
+                <div class="about-description">
+                    <div>
+                        <span class="word">love</span> 
+                        <span class="word">creating</span> 
+                        <a href="#" class="word link-posters">posters</a>.
+                    </div>
+                    <div>
+                        <span class="word">want</span> 
+                        <span class="word">to</span> 
+                        <span class="word">go</span> 
+                        <span class="word">to</span> 
+                        <a href="#" class="word link-tibet">tibet</a>.
+                    </div>
+                    <div>
+                        <span class="word">born</span> 
+                        <span class="word">to</span> 
+                        <a href="#" class="word link-vibe">vibe</a>.
+                    </div>
+                </div>                               
+                <!-- Дополнительные фразы -->
+                <div class="additional-description">
+                    <div>figma</div>
+                    <div>adobe photoshop</div>
+                    <div>adobe illustrator</div>
+                </div>                
+            </div>
+            <div class="image-block">
+                <img src="about.png" alt="Фото Artem" class="about-image">
+            </div>
+        </div>        
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Плавный переход при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('fade-in');
+        });
+
+        // Плавный переход при клике на ссылку
+        document.querySelectorAll('.link-transition').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const href = link.getAttribute('href');
+                document.body.classList.add('fade-out');
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500); // Длительность перехода совпадает с CSS
+            });
+        });
+
+        // Генерация случайного цвета для букв
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        // Анимация для букв
+        document.querySelectorAll('.letter').forEach(letter => {
+            letter.addEventListener('mouseover', function() {
+                // Обнуляем и сбрасываем все анимации при каждом наведении
+                letter.classList.remove('mouse-move');
+                void letter.offsetWidth; // "Жульничество" для сброса анимации
+                letter.classList.add('mouse-move');
+                letter.style.color = getRandomColor();
+            });
+
+            letter.addEventListener('mouseout', function() {
+                letter.style.transition = 'color 0.5s ease-in-and-out';
+                letter.style.color = ''; 
+                letter.addEventListener('animationend', function() {
+                    letter.classList.remove('mouse-move');
+                });
+            });
+        });
+        // Ссылки для "posters", "tibet" и "vibe"
+        document.querySelector('.link-posters').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.open('https://say-hi.me/design/10-sovetov-kak-sozdat-poster-zasluzhivayushhij-vnimaniya.html', '_blank');
+        });
+
+        document.querySelector('.link-tibet').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.open('https://www.youtube.com/watch?v=tJiRKvsgHIo', '_blank');
+        });
+
+        document.querySelector('.link-vibe').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.open('https://www.youtube.com/watch?v=M2a1eZy5zmI&t=974s', '_blank');
+        });
+    </script>
+</body>
+</html>
