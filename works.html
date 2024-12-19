@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои работы</title>
+    <link rel="stylesheet" href="styles_works.css">
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        body.fade-in {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="menu">
+            <a href="works.html" class="menu-item">works</a>
+            <div class="divider"></div>
+            <a href="about.html" class="menu-item">about me</a>
+            <div class="divider"></div>
+            <div class="menu-item">contacts</div>
+            <a href="index.html" class="menu-item">home</a>
+        </nav>
+
+        <div class="grid-container">
+            <div class="work-item" data-title="book cover, 2024" data-img="work1.png"></div>
+            <div class="work-item" data-title="dragon, 2024" data-img="work2.png"></div>
+            <div class="work-item" data-title="latin poster, 2024" data-img="work3.png"></div>
+            <div class="work-item" data-title="movie poster, 2023" data-img="work4.png"></div>
+            <div class="work-item" data-title="alexios, 2022" data-img="work5.png"></div>
+            <div class="work-item" data-title="exhibition poster, 2023" data-img="work6.png"></div>
+            <div class="work-item" data-title="the crow, 2024" data-img="work7.png"></div>
+            <div class="work-item" data-title="the title, 2024" data-img="work8.png"></div>
+            <div class="work-item" data-title="graffiti, 2022" data-img="work9.png"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("fade-in");
+        });
+
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", event => {
+                event.preventDefault();
+                const href = event.target.href;
+                document.body.classList.remove("fade-in");
+                document.body.style.opacity = 0;
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500); // Время синхронизировано с transition
+            });
+        });
+
+        document.querySelectorAll('.work-item').forEach(item => {
+            const title = item.getAttribute('data-title');
+            const img = item.getAttribute('data-img');
+            item.innerHTML = `
+                <img src="${img}" alt="${title}" class="work-image">
+                <div class="work-title">${title}</div>
+            `;
+        });
+    </script>
+</body>
+</html>

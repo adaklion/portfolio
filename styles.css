@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Neue Regrade', sans-serif;
+    font-weight: 600;
+    background-color: #040404;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 90px; /* Увеличен отступ */
+    margin-left: 60px; /* Увеличен отступ */
+    font-size: 4em; /* Увеличен размер шрифта */
+}
+
+.menu-item {
+    margin: 10px 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.menu a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: white; /* Цвет текста */
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #7C0000; /* Цвет при наведении */
+}
+
+.menu-item:hover {
+    color: #7C0000;
+}
+
+.divider {
+    width: 82px;
+    height: 6px;
+    background-color: white;
+    margin: 16px 0; /* Увеличено расстояние */
+}
+
+.image-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0px; /* Увеличен отступ */
+}
+
+.line {
+    width: 100%;
+    height: 6px;
+    background-color: white;
+    position: absolute;
+    bottom: 100px; /* Линия немного поднята */
+    left: 0;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translatey(0);
+    }
+    50% {
+        transform: translatey(-10px);
+    }
+}
